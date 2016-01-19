@@ -1,3 +1,5 @@
+!function(window, document) {
+
 var html = "<div><p>m</p></div>";
 var $ = window.$ || window.Zepto;
 
@@ -24,16 +26,6 @@ var styles = {
   padding: "12px 14px"
 };
 
-module.exports = function(msg, expire) {
-  var toast;
-  msg = msg || "";
-  expire = expire || time;
-
-  Tip(msg, expire);
-};
-
-Tip.rm = remove;
-
 function Tip(str, time) {
 
     if (tip) {
@@ -43,7 +35,7 @@ function Tip(str, time) {
         tip = $(html.replace("m", str))
           .css(styles)
           .css({
-            top: (document.body.scrollTop + 200) + "px"
+            top: (body.scrollTop + 200) + "px"
           })
           .appendTo(body);
 
@@ -66,3 +58,19 @@ function remove() {
     tip = null;
   }
 }
+
+var entry = function(msg, expire) {
+  msg = msg || "";
+  expire = expire || time;
+
+  Tip(msg, expire);
+};
+
+if (typeof module != "undefined" && module.exports) {
+  module.exports = entry;
+} else {
+  window.Toast = entry;
+}
+
+
+}(window, document);
