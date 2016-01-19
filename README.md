@@ -4,10 +4,10 @@ toast
 toast弹框提示
 
 
-```coffeescript
+```javascript
 
-Toast = require "wallet/toast"
+var Toast = require("toast");
 
-Toast "这是提示信息"
+Toast("提示信息");
 
 ```
