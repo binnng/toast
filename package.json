@@ -1,8 +1,8 @@
 {
   "name": "m-toaster",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a mobile toaster",
-  "main": "debug.js",
+  "main": "toast.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/binnng/toast.js.git"
@@ -11,8 +11,8 @@
     "build": "rm -rf build && mkdir build && uglifyjs toast.js -o build/toast.min.js -m"
   },
   "keywords": [
-    "debug",
-    "console"
+    "toast",
+    "toaster"
   ],
   "author": "imbinnng@gmail.com",
   "license": "MIT",
@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/binnng/toast.js",
   "dependencies": {
-    "uglify-js": "^2.4.15"
+    "zepto": "^1.2.0"
   }
 }

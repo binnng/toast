@@ -3,7 +3,7 @@
 var html = "<div><p>m</p></div>";
 var $ = window.$ || window.Zepto;
 
-var body = document.body;
+var body;
 var tip;
 var timeout;
 var time = 3000;
@@ -28,24 +28,26 @@ var styles = {
 
 function Tip(str, time) {
 
-    if (tip) {
-      clearTimeout(timeout);
-      tip.find('p').html(str);
-    } else {
-        tip = $(html.replace("m", str))
-          .css(styles)
-          .css({
-            top: (body.scrollTop + 200) + "px"
-          })
-          .appendTo(body);
+  body = document.body;  
 
-        setTimeout(function() {
-          tip.css({
-            opacity: 1
-          });
-        }, 50);
-    }
-    timeout = clear(time);
+  if (tip) {
+    clearTimeout(timeout);
+    tip.find('p').html(str);
+  } else {
+      tip = $(html.replace("m", str))
+        .css(styles)
+        .css({
+          top: (body.scrollTop + 200) + "px"
+        })
+        .appendTo(body);
+
+      setTimeout(function() {
+        tip.css({
+          opacity: 1
+        });
+      }, 50);
+  }
+  timeout = clear(time);
 }
 
 function clear(time) {
@@ -59,7 +61,7 @@ function remove() {
   }
 }
 
-var entry = function(msg, expire) {
+function entry(msg, expire) {
   msg = msg || "";
   expire = expire || time;
 
