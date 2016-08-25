@@ -3,6 +3,10 @@ toast
 
 toast弹框提示
 
+```
+npm install m-toaster --save
+```
+
 
 ```javascript
 
