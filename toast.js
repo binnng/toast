@@ -23,7 +23,8 @@ var styles = {
   lineHeight: "1.3",
   textAlign: "center",
   background: "rgba(0,0,0,.6)",
-  padding: "12px 14px"
+  padding: "12px 14px",
+  top: "120px"
 };
 
 function Tip(str, time) {
@@ -36,9 +37,6 @@ function Tip(str, time) {
   } else {
       tip = $(html.replace("m", str))
         .css(styles)
-        .css({
-          top: (body.scrollTop + 200) + "px"
-        })
         .appendTo(body);
 
       setTimeout(function() {
